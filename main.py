@@ -1,24 +1,34 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 def main():
-    print("Projeto de Análise Logística Iniciado")
+    print("Logistics Analysis Project Started")
 
-    dados = {
-        "Entrega": [1, 2, 3, 4],
-        "Atraso_dias": [0, 1, 3, 0],
-        "Custo": [120, 200, 150, 180]
+    data = {
+        "Delivery": [1, 2, 3, 4],
+        "Delay_days": [0, 1, 3, 0],
+        "Cost": [120, 200, 150, 180]
     }
 
-    df = pd.DataFrame(dados)
+    df = pd.DataFrame(data)
 
-    print("\nDados das entregas:")
+    print("\nDelivery data:")
     print(df)
 
-    media_atraso = df["Atraso_dias"].mean()
-    custo_medio = df["Custo"].mean()
+    average_delay = df["Delay_days"].mean()
+    average_cost = df["Cost"].mean()
 
-    print("\nMédia de atraso:", media_atraso)
-    print("Custo médio:", custo_medio)
+    print("\nAverage delay:", average_delay)
+    print("Average cost:", average_cost)
+
+    # Delay chart
+    plt.figure()
+    plt.bar(df["Delivery"], df["Delay_days"])
+    plt.title("Delay per Delivery")
+    plt.xlabel("Delivery")
+    plt.ylabel("Delay (Days)")
+    plt.show()
 
 
 if __name__ == "__main__":
